@@ -9,9 +9,11 @@ vector<string> split(string& text)
 {
 	vector<string> values;
 	text += "-";
-	// split
-	int a = 0, b = 0;
-	while (1) {
+	
+	size_t a = 0;
+	size_t b = 0;
+	while (true)
+	{
 		b = text.find("-", a);
 		if (b == -1) break;
 		string temp = text.substr(a, b - a);
@@ -21,30 +23,31 @@ vector<string> split(string& text)
 	return values;
 }
 
-int sum_values(vector<string>& values)
+int get_sum(const vector<string>& values)
 {
 	int result = 0;
-	// sum 
-	for (int i = 0; i < values.size(); i++) {
-		int temp = stoi(values[i]);
+	
+	for (auto& value : values)
+	{
+		const int temp = stoi(value);
 		result += temp;
 	}
 	return result;
 }
 
-int splitAndSum2(string text)
+int split_and_sum2(string text)
 {
 	if (text.empty())
 	{
 		return 0;
 	}
 
-	vector<string> values = split(text);
-	return sum_values(values);
-
+	const vector<string> values = split(text);
+	return get_sum(values);
 }
+
 int main()
 {
-	cout << splitAndSum2("100-10-20");
+	cout << split_and_sum2("100-10-20");
 	return 0;
 }
