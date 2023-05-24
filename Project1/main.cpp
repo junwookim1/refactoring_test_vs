@@ -34,17 +34,14 @@ int sum_values(vector<string>& values)
 
 int splitAndSum2(string text)
 {
-	int result = 0;
 	if (text.empty())
 	{
-		result = 0;
+		return 0;
 	}
-	else {
-		
-		vector<string> values = split(text);
-		result = sum_values(values);
-	}
-	return result;
+
+	vector<string> values = split(text);
+	return sum_values(values);
+
 }
 int main()
 {
